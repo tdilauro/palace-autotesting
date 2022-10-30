@@ -1,0 +1,29 @@
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.isort]
+known_first_party = ["customlists", "core", "api"]
+profile = "black"
+
+[tool.poetry]
+authors = ["Tim DiLauro <tim.dilauro@gmail.com>"]
+description = "Automated tests."
+name = "autotests"
+readme = "README.md"
+version = "0" # Version number is managed elsewhere
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.982"
+pre-commit = "~2.20"
+pytest = "^7"
+pytest-playwright = "*"
+pytest-timeout = "*"
+
+[tool.pytest.ini_options]
+addopts = "--headed --slowmo 1000"
+timeout = "600"
+timeout_method = "thread"
