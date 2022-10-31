@@ -16,14 +16,15 @@ version = "0" # Version number is managed elsewhere
 [tool.poetry.dependencies]
 python = ">=3.7,<4"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 mypy = "^0.982"
 pre-commit = "~2.20"
 pytest = "^7"
 pytest-playwright = "*"
 pytest-timeout = "*"
+pytest-xdist = "^3.0.2"
 
 [tool.pytest.ini_options]
-addopts = "--headed --slowmo 1000"
+addopts = "--headed --slowmo 1000 -n 3 --browser chromium --browser firefox --browser webkit"
 timeout = "600"
 timeout_method = "thread"
